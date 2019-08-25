@@ -1,5 +1,5 @@
 // this will be the repository of pokemon displayed in application
-let repository = [
+let pokemonRepo = [
 	{ name: 'Bulbasaur', height: 0.7, types: ['grass', 'poison'] },
 	{ name: 'Ivysaur', height: 1, types: ['grass', 'poison'] },
 	{ name: 'Venusaur', height: 0.7, types: ['grass', 'poison'] },
@@ -8,9 +8,8 @@ let repository = [
 	{ name: 'Charizard', height: 1.7, types: ['fire'] }
 ];
 
-console.log(repository[0]);
-console.log(repository[1]);
-console.log(repository[2]);
-console.log(repository[3]);
-console.log(repository[4]);
-console.log(repository[5]);
+document.write(pokemonRepo[('name', 'height')]);
+
+for (var element in pokemonRepo) {
+	document.write(element, pokemonRepo[element]);
+}
