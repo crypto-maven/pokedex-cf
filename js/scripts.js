@@ -13,6 +13,19 @@ let pokemonRepo = [
 // }
 
 // for loop that iterates over each item in the repository
+// for (var printData = 0; printData < pokemonRepo.length; printData++) {
+// 	document.write(pokemonRepo[printData].name, pokemonRepo[printData].height);
+// }
+
+message = '';
 for (var printData = 0; printData < pokemonRepo.length; printData++) {
-	document.write(pokemonRepo[printData].name, pokemonRepo[printData].height);
+	if () {
+		
+	} else (pokemonRepo[printData].height >= 1.5) {
+		document.write(
+			pokemonRepo[printData].name,
+			pokemonRepo[printData].height,
+			' - Wow, that is big!'
+		);
+	}
 }
