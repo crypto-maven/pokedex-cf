@@ -8,8 +8,11 @@ let pokemonRepo = [
 	{ name: 'Charizard', height: 1.7, types: ['fire'] }
 ];
 
-document.write(pokemonRepo[('name', 'height')]);
+// for (var element in pokemonRepo) {
+// 	document.write(pokemonRepo[element].name, pokemonRepo[element].height);
+// }
 
-for (var element in pokemonRepo) {
-	document.write(element, pokemonRepo[element]);
+// for loop that iterates over each item in the repository
+for (var printData = 0; printData < pokemonRepo.length; printData++) {
+	document.write(pokemonRepo[printData].name, pokemonRepo[printData].height);
 }
