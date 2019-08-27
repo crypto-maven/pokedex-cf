@@ -5,22 +5,212 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<title>Pokedex</title>
+		<!-- css stylesheet -->
 		<link rel="stylesheet" href="css/styles.css" />
+		<!-- bulma cdn -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
+		/>
+		<!-- fontawesome cdn-->
+		<script
+			defer
+			src="https://pro.fontawesome.com/releases/v5.10.2/js/all.js"
+			integrity="sha384-lowSFbzpSYKDOsvnpi2JVneSnkrbVjOTwcHOWpC+tj/YT1mxTDIB3ZqbtllmfUSC"
+			crossorigin="anonymous"
+		></script>
 	</head>
 	<body>
-		<header class="page-header"></header>
-		<section class="pokemon-list">
-			<div>
-				<ul>
-					<li>Bulbasaur</li>
-					<li>Ivysaur</li>
-					<li>Venusaur</li>
-					<li>Charmander</li>
-					<li>Charmeleon</li>
-					<li>Charizard</li>
-				</ul>
+		<nav
+			class="navbar is-primary"
+			role="navigation"
+			aria-label="Main navigation"
+		>
+			<div class="container">
+				<div class="navbar-brand">
+					<a href="index.html" class="navbar-item">Pokedex</a>
+					<img src="img/pokeball.svg" class="pokeball" />
+					<button class="button navbar-burger" data-target="navMenu">
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+				</div>
+				<div class="navbar-menu" id="navMenu">
+					<div class="navbar-end">
+						<div class="navbar-item has-dropdown is-hoverable">
+							<a href="#" class="navbar-link">English</a>
+							<div class="navbar-dropdown is-boxed"></div>
+							<a href="#" class="navbar-item">Language</a>
+							<a href="#" class="navbar-item">Language</a>
+							<a href="#" class="navbar-item">Language</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<section class="section">
+			<div class="container">
+				<form action=" " class="content">
+					<div class="field has-addons">
+						<div class="control is-expanded">
+							<input
+								type="search"
+								name="search"
+								class="input is-large"
+								id="search"
+								placeholder="Search for pokemon"
+								aria-label="search for..."
+							/>
+						</div>
+						<div class="control">
+							<button
+								type="submit"
+								class="button is-large is-primary"
+							>
+								Search
+							</button>
+						</div>
+					</div>
+				</form>
+				<h1 class="title has-text-centered">List of Pokemon</h1>
+				<div class="columns is-multiline">
+					<div class="column is-half-tablet is-one-quarter-desktop">
+						<div class="card">
+							<div class="card-image">
+								<figure class="image is-square">
+									<img
+										src="img/bulbasaur.png"
+										alt="pokemon image and stats"
+									/>
+								</figure>
+							</div>
+							<div class="card-content has-text-centered">
+								<h2 class="title is-4">
+									<a href="article.html">Bulbasaur</a>
+								</h2>
+								<p>
+									Lorem ipsum dolor sit amet consectetur
+									adipisicing elit. Saepe modi rerum
+									perferendis non quod impedit.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="column is-half-tablet is-one-quarter-desktop">
+						<div class="card">
+							<div class="card-image">
+								<figure class="image is-square">
+									<img
+										src="img/ivysaur.png"
+										alt="pokemon image and stats"
+									/>
+								</figure>
+							</div>
+							<div class="card-content has-text-centered">
+								<h2 class="title is-4">
+									<a href="article.html">Ivysaur</a>
+								</h2>
+								<p>
+									Lorem ipsum dolor sit amet consectetur
+									adipisicing elit. Saepe modi rerum
+									perferendis non quod impedit.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="column is-half-tablet is-one-quarter-desktop">
+						<div class="card">
+							<div class="card-image">
+								<figure class="image is-square">
+									<img
+										src="img/venusaur.png"
+										alt="pokemon image and stats"
+									/>
+								</figure>
+							</div>
+							<div class="card-content has-text-centered">
+								<h2 class="title is-4">
+									<a href="article.html">Venusaur</a>
+								</h2>
+								<p>
+									Lorem ipsum dolor sit amet consectetur
+									adipisicing elit. Saepe modi rerum
+									perferendis non quod impedit.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="column is-half-tablet is-one-quarter-desktop">
+						<div class="card">
+							<div class="card-image">
+								<figure class="image is-square">
+									<img
+										src="img/charmander.png"
+										alt="pokemon image and stats"
+									/>
+								</figure>
+							</div>
+							<div class="card-content has-text-centered">
+								<h2 class="title is-4">
+									<a href="article.html">Charmander</a>
+								</h2>
+								<p>
+									Lorem ipsum dolor sit amet consectetur
+									adipisicing elit. Saepe modi rerum
+									perferendis non quod impedit.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="column is-half-tablet is-one-quarter-desktop">
+						<div class="card">
+							<div class="card-image">
+								<figure class="image is-square">
+									<img
+										src="img/charmeleon.png"
+										alt="pokemon image and stats"
+									/>
+								</figure>
+							</div>
+							<div class="card-content has-text-centered">
+								<h2 class="title is-4">
+									<a href="article.html">Charmeleon</a>
+								</h2>
+								<p>
+									Lorem ipsum dolor sit amet consectetur
+									adipisicing elit. Saepe modi rerum
+									perferendis non quod impedit.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="column is-half-tablet is-one-quarter-desktop">
+						<div class="card">
+							<div class="card-image">
+								<figure class="image is-square">
+									<img
+										src="img/charizard.png"
+										alt="pokemon image and stats"
+									/>
+								</figure>
+							</div>
+							<div class="card-content has-text-centered">
+								<h2 class="title is-4">
+									<a href="article.html">Charizard</a>
+								</h2>
+								<p>
+									Lorem ipsum dolor sit amet consectetur
+									adipisicing elit. Saepe modi rerum
+									perferendis non quod impedit.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
+
 		<script src="js/scripts.js"></script>
 	</body>
 </html>
