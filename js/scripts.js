@@ -8,10 +8,6 @@ let pokemonRepo = [
 	{ name: 'Charizard', height: 1.7, types: ['fire'] }
 ];
 
-// for (var element in pokemonRepo) {
-// 	document.write(pokemonRepo[element].name, pokemonRepo[element].height);
-// }
-
 // for loop that iterates over each item in the repository
 for (var printData = 0; printData < pokemonRepo.length; printData++) {
 	document.write(pokemonRepo[printData].name, pokemonRepo[printData].height);
@@ -26,6 +22,11 @@ for (var printData = 0; printData < pokemonRepo.length; printData++) {
 		);
 	}
 }
+
+// forEach that prints the details of the pokemon repo
+Object.keys(pokemonRepo).forEach(function(property) {
+	console.log(pokemonRepo[property]);
+});
 
 // functionality for the nav bar- from bulma documentation
 document.addEventListener('DOMContentLoaded', function() {
