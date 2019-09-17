@@ -9,8 +9,9 @@
 // ];
 
 // wrapping pokemonRepo in an IIFE
-(function(name, height) {
-	var pokemonRepository = [
+(function(pokemonRepository) {
+	var pokemonRepository = repository;
+	var repository = [
 		{ name: 'Bulbasaur', height: 0.7, types: ['grass', 'poison'] },
 		{ name: 'Ivysaur', height: 1, types: ['grass', 'poison'] },
 		{ name: 'Venusaur', height: 0.7, types: ['grass', 'poison'] },
