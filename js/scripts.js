@@ -34,11 +34,10 @@ pokemonRepository.add({ name: 'Pikachu' });
 console.log(pokemonRepository.getAll());
 
 // for loop that iterates over each item in the repository
-for (var printData = 0; printData < pokemonRepository.length; printData++) {
-	document.write(
-		pokemonRepository[printData].name,
-		pokemonRepository[printData].height
-	);
+for (var i = 0; i < pokemonRepository.getAll().length; i++) {
+	let printData = pokemonRepository.getAll()[i];
+	debugger;
+	document.write(printData.name, printData.height);
 }
 
 for (var printData = 0; printData < pokemonRepository.length; printData++) {
