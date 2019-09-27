@@ -1,13 +1,3 @@
-// this will be the repository of pokemon displayed in application
-// let pokemonRepo = [
-// 	{ name: 'Bulbasaur', height: 0.7, types: ['grass', 'poison'] },
-// 	{ name: 'Ivysaur', height: 1, types: ['grass', 'poison'] },
-// 	{ name: 'Venusaur', height: 0.7, types: ['grass', 'poison'] },
-// 	{ name: 'Charmander', height: 0.6, types: ['fire'] },
-// 	{ name: 'Charmeleon', height: 1.1, types: ['fire'] },
-// 	{ name: 'Charizard', height: 1.7, types: ['fire'] }
-// ];
-
 // wrapping pokemonRepo in an IIFE
 var pokemonRepository = (function() {
 	var repository = [
@@ -38,9 +28,7 @@ for (var i = 0; i < pokemonRepository.getAll().length; i++) {
 	let printData = pokemonRepository.getAll()[i];
 	debugger;
 	document.write(printData.name, printData.height);
-}
 
-for (var printData = 0; printData < pokemonRepository.length; printData++) {
 	if (pokemonRepository[printData].height >= 1.5) {
 		document.write(
 			pokemonRepository[printData].name,
@@ -48,7 +36,7 @@ for (var printData = 0; printData < pokemonRepository.length; printData++) {
 			' - Wow, that is big!'
 		);
 	}
-}
+
 
 // forEach that prints the details of the pokemon repo exercise 1.4
 Object.keys(pokemonRepository).forEach(function(property) {
