@@ -30,8 +30,8 @@ for (var i = 0; i < pokemonRepository.getAll().length; i++) {
 
 	if (printData.height >= 1.5) {
 		document.write(
-			pokemonRepository[printData].name,
-			pokemonRepository[printData].height,
+			printData.name,
+			printData.height,
 			' - Wow, that is big!'
 		);
 	}
