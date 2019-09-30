@@ -20,7 +20,7 @@ var pokemonRepository = (function() {
 	};
 })();
 console.log(pokemonRepository.getAll());
-pokemonRepository.add({ name: 'Pikachu' });
+pokemonRepository.add({ name: 'Pikachu', height: 0.4});
 console.log(pokemonRepository.getAll());
 
 // for loop that iterates over each item in the repository
