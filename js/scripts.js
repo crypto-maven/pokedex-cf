@@ -20,16 +20,15 @@ var pokemonRepository = (function() {
 	};
 })();
 console.log(pokemonRepository.getAll());
-pokemonRepository.add({ name: 'Pikachu', height: 0.4});
+pokemonRepository.add({ name: 'Pikachu', height: 0.4 });
 console.log(pokemonRepository.getAll());
 
 // for loop that iterates over each item in the repository
 for (var i = 0; i < pokemonRepository.getAll().length; i++) {
 	let printData = pokemonRepository.getAll()[i];
-	debugger;
 	document.write(printData.name, printData.height);
 
-	if (pokemonRepository[printData].height >= 1.5) {
+	if (printData.height >= 1.5) {
 		document.write(
 			pokemonRepository[printData].name,
 			pokemonRepository[printData].height,
@@ -65,3 +64,4 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	}
 });
+debugger;
