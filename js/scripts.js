@@ -36,7 +36,7 @@ for (var i = 0; i < pokemonRepository.getAll().length; i++) {
 			' - Wow, that is big!'
 		);
 	}
-
+}
 
 // forEach that prints the details of the pokemon repo exercise 1.4
 Object.keys(pokemonRepository).forEach(function(property) {
