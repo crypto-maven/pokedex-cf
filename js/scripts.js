@@ -23,10 +23,13 @@ console.log(pokemonRepository.getAll());
 pokemonRepository.add({ name: 'Pikachu', height: 0.4 });
 console.log(pokemonRepository.getAll());
 
+//  create a variable above the forEach loop block, then assign it the ul element
+var $pokemonList = document.querySelector('.pokemon-list');
+
 // for loop that iterates over each item in the repository
 for (var i = 0; i < pokemonRepository.getAll().length; i++) {
 	let printData = pokemonRepository.getAll()[i];
-	document.write(printData.name, printData.height);
+	document.write(...);
 
 	if (printData.height >= 1.5) {
 		document.write(
