@@ -14,9 +14,13 @@ var pokemonRepository = (function() {
 	function getAll() {
 		return repository;
 	}
+	function addListItem(){
+
+	}
 	return {
-		add: add,
-		getAll: getAll
+		add,
+		getAll,
+		addListItem
 	};
 })();
 console.log(pokemonRepository.getAll());
