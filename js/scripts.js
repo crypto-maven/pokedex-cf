@@ -34,7 +34,7 @@ for (var i = 0; i < pokemonRepository.getAll().length; i++) {
 	var li = document.createElement('li');
 	li.innerText = printData.name;
 	var button = document.createElement('button');
-	button.innerText = 'Click this guy!!';
+	button.innerText = pokemonRepository.name;
 	li.appendChild(button);
 	$pokemonList.appendChild(li);
 
