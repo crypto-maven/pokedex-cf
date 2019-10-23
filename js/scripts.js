@@ -14,9 +14,7 @@ var pokemonRepository = (function() {
 	function getAll() {
 		return repository;
 	}
-	function addListItem(){
-
-	}
+	function addListItem() {}
 	return {
 		add,
 		getAll,
@@ -33,15 +31,20 @@ var $pokemonList = document.querySelector('.pokemon-list');
 // for loop that iterates over each item in the repository
 for (var i = 0; i < pokemonRepository.getAll().length; i++) {
 	let printData = pokemonRepository.getAll()[i];
-	document.write(...);
+	var li = document.createElement('li');
+	li.innerText = printData.name;
+	var button = document.createElement('button');
+	button.innerText = 'Click this guy!!';
+	li.appendChild(button);
+	$pokemonList.appendChild(li);
 
-	if (printData.height >= 1.5) {
-		document.write(
-			printData.name,
-			printData.height,
-			' - Wow, that is big!'
-		);
-	}
+	// if (printData.height >= 1.5) {
+	// 	document.write(
+	// 		printData.name,
+	// 		printData.height,
+	// 		' - Wow, that is big!'
+	// 	);
+	// }
 }
 
 // forEach that prints the details of the pokemon repo exercise 1.4
