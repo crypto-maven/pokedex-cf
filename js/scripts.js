@@ -8,50 +8,70 @@ var pokemonRepository = (function() {
 		{ name: 'Charmeleon', height: 1.1, types: ['fire'] },
 		{ name: 'Charizard', height: 1.7, types: ['fire'] }
 	];
-};
-// validation of the pokemon 
-function add(pokemon){
-	if (
-		typeof pokemon === 'object' &&
-		'name' in pokemon &&
-		'height' in pokemon && 
-		'types' in pokemon
-	) {
-		repository.push(pokemon);
+	// the validation of the pokemon
+	function add(pokemon) {
+		if (
+			typeof pokemon === 'object' &&
+			'name' in pokemon &&
+			'height' in pokemon &&
+			'types' in pokemon
+		) {
+			repository.push(pokemon);
+		}
 	}
-}
-function getAll() {
-	return repository;
-}
-function addListItem(pokemon = {}){
-	var pokemonList = document.querySelector('.pokemon-list');
-	var $listItem = document.createElement('li');
-	var button = document.createElement('button');
-	button.innerText = pokemon.name;
-	button.classList.add('my-class');
-	$listItem.appendChild(button);
-	pokemonList.appendChild($listItem);
-	button.addEventListener('click', function(event){
-		showDetails(pokemon);
-	});
-}
-function showDetails(pokemon){
-	console.log(pokemon);
-}
-return {
-	add,
-	getAll,
-	addListItem
-}();
+	function getAll() {
+		return repository;
+	}
+	function addListItem(pokemon = {}) {
+		var pokemonList = document.querySelector('.pokemon-list');
+		var $listItem = document.createElement('li');
+		var button = document.createElement('button');
+		button.innerText = pokemon.name;
+		button.classList.add('my-class');
+		$listItem.appendChild(button);
+		pokemonList.appendChild($listItem);
+		button.addEventListener('click', function(event) {
+			showDetails(pokemon);
+		});
+	}
+	function showDetails(pokemon) {
+		console.log(pokemon);
+	}
+	return {
+		add: add,
+		getAll: getAll,
+		addListItem: addListItem
+	};
+})();
 
 console.log(pokemonRepository.getAll());
-pokemonRepository.add({name: 'Pikachu', height: 0.3, types: ['electric']});
+pokemonRepository.add({ name: 'Pikachu', height: 0.3, types: ['electric'] });
 console.log(pokemonRepository.getAll());
 
-pokemonRepository.getAll().forEach(function(item){
+pokemonRepository.getAll().forEach(function(item) {
+	// var size;
+	// if (item.height > 1) {
+	// 	size = 'Wow, that’s big!';
+	// } else {
+	// 	size = "It's small pokemon";
+	// }
+
+	// var result;
+	// item.types.forEach(function(typeItem) {
+	// 	if (typeItem == 'grass') {
+	// 		result = '<span style="color:green;"> ';
+	// 	} else if (typeItem == 'fire') {
+	// 		result = '<span style="color:red;"> ';
+	// 	} else if (typeItem == 'electric') {
+	// 		result = '<span style="color:yellow;"> ';
+	// 	} else if (typeItem == 'poison') {
+	// 		result = '<span style="color:rgb(106, 42, 106);"> ';
+	// 	} else if (typeItem == 'psychic') {
+	// 		result = '<span style="color:orange;"> ';
+	// 	}
+	// });
 	pokemonRepository.addListItem(item);
-})
-
+});
 
 // functionality for the nav bar- from bulma documentation
 document.addEventListener('DOMContentLoaded', function() {
