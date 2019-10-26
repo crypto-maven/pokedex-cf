@@ -8,49 +8,50 @@ var pokemonRepository = (function() {
 		{ name: 'Charmeleon', height: 1.1, types: ['fire'] },
 		{ name: 'Charizard', height: 1.7, types: ['fire'] }
 	];
-	function add(pokemon) {
+};
+// validation of the pokemon 
+function add(pokemon){
+	if (
+		typeof pokemon === 'object' &&
+		'name' in pokemon &&
+		'height' in pokemon && 
+		'types' in pokemon
+	) {
 		repository.push(pokemon);
 	}
-	function getAll() {
-		return repository;
-	}
-	function addListItem() {}
-	return {
-		add,
-		getAll,
-		addListItem
-	};
-})();
-console.log(pokemonRepository.getAll());
-pokemonRepository.add({ name: 'Pikachu', height: 0.4 });
-console.log(pokemonRepository.getAll());
-
-//  create a variable above the forEach loop block, then assign it the ul element
-var $pokemonList = document.querySelector('.pokemon-list');
-
-// for loop that iterates over each item in the repository
-for (var i = 0; i < pokemonRepository.getAll().length; i++) {
-	let printData = pokemonRepository.getAll()[i];
-	var li = document.createElement('li');
-	li.innerText = printData.name;
-	var button = document.createElement('button');
-	button.innerText = 'Click this guy!!';
-	li.appendChild(button);
-	$pokemonList.appendChild(li);
-
-	// if (printData.height >= 1.5) {
-	// 	document.write(
-	// 		printData.name,
-	// 		printData.height,
-	// 		' - Wow, that is big!'
-	// 	);
-	// }
 }
+function getAll() {
+	return repository;
+}
+function addListItem(pokemon = {}){
+	var pokemonList = document.querySelector('.pokemon-list');
+	var $listItem = document.createElement('li');
+	var button = document.createElement('button');
+	button.innerText = pokemon.name;
+	button.classList.add('my-class');
+	$listItem.appendChild(button);
+	pokemonList.appendChild($listItem);
+	button.addEventListener('click', function(event){
+		showDetails(pokemon);
+	});
+}
+function showDetails(pokemon){
+	console.log(pokemon);
+}
+return {
+	add,
+	getAll,
+	addListItem
+}();
 
-// forEach that prints the details of the pokemon repo exercise 1.4
-Object.keys(pokemonRepository).forEach(function(property) {
-	console.log(pokemonRepository[property]);
-});
+console.log(pokemonRepository.getAll());
+pokemonRepository.add({name: 'Pikachu', height: 0.3, types: ['electric']});
+console.log(pokemonRepository.getAll());
+
+pokemonRepository.getAll().forEach(function(item){
+	pokemonRepository.addListItem(item);
+})
+
 
 // functionality for the nav bar- from bulma documentation
 document.addEventListener('DOMContentLoaded', function() {
@@ -74,4 +75,3 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	}
 });
-debugger;
