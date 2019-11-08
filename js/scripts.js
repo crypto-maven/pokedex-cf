@@ -38,9 +38,9 @@ var pokemonRepository = (function() {
 		console.log(pokemon);
 	}
 	return {
-		add: add,
-		getAll: getAll,
-		addListItem: addListItem
+		add,
+		getAll,
+		addListItem
 	};
 })();
 
