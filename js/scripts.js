@@ -54,11 +54,30 @@ var pokemonRepository = (function() {
 			console.error(e);
 		});
 	}
-
+	function loadDetails(item){
+		var url = item.detailsUrl;
+		return fetch(url).then(function(response){
+			return response.json();
+		})
+		.then(function(response){
+			return response.json();
+		})
+		.then(function(details){
+			// adding details to the item
+			item.imageUrl = details.sprites.front_default;
+			item.height = details.height;
+			item.types = Object.keys(details.types);
+		})
+		.catch(function(e){
+			console.error(e);
+		});
+	}
 	return {
 		add,
 		getAll,
-		addListItem
+		addListItem,
+		loadList,
+		loadDetails
 	};
 })();
 
