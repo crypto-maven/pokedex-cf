@@ -8,15 +8,18 @@ var pokemonRepository = (function() {
 			typeof pokemon === 'object' &&
 			'name' in pokemon &&
 			'height' in pokemon &&
-			'types' in pokemon
+			'types' in pokemon &&
+			'detailsUrl' in pokemon
 		) {
 			repository.push(pokemon);
+		} else {
+			console.log('add an object');
 		}
 	}
 	function getAll() {
 		return repository;
 	}
-	function addListItem(pokemon = {}) {
+	function addListItem(pokemon) {
 		var pokemonList = document.querySelector('.pokemon-list');
 		var $listItem = document.createElement('li');
 		var button = document.createElement('button');
@@ -28,9 +31,30 @@ var pokemonRepository = (function() {
 			showDetails(pokemon);
 		});
 	}
-	function showDetails(pokemon) {
-		console.log(pokemon);
+	function showDetails(item) {
+		pokemonRepository.loadDetails(item).then(function() {
+			console.log(item);
+		});
 	}
+	function loadList(){
+		return fetch(apiUrl).then(function(response){
+			return response.json();
+		})
+		.then(function(json){
+			json.results.forEach(function(item){
+				var pokemon = {
+					name: item.name,
+					detailsUrl: item.url
+				};
+				add(pokemon);
+				console.log(pokemon);
+			});
+		});
+		.catch(function(e){
+			console.error(e);
+		});
+	}
+
 	return {
 		add,
 		getAll,
