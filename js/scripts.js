@@ -19,7 +19,7 @@ var pokemonRepository = (function() {
 	function getAll() {
 		return repository;
 	}
-	function addListItem(pokemon) {
+	function addListItem(pokemon = {}) {
 		var pokemonList = document.querySelector('.pokemon-list');
 		var $listItem = document.createElement('li');
 		var button = document.createElement('button');
@@ -36,6 +36,7 @@ var pokemonRepository = (function() {
 			console.log(item);
 		});
 	}
+	// loading data from external api
 	function loadList() {
 		return fetch(apiUrl)
 			.then(function(response) {
@@ -68,6 +69,7 @@ var pokemonRepository = (function() {
 				// adding details to the item
 				item.imageUrl = details.sprites.front_default;
 				item.height = details.height;
+				item.weight = details.weight;
 				item.types = Object.keys(details.types);
 			})
 			.catch(function(e) {
