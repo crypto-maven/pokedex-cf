@@ -36,41 +36,43 @@ var pokemonRepository = (function() {
 			console.log(item);
 		});
 	}
-	function loadList(){
-		return fetch(apiUrl).then(function(response){
-			return response.json();
-		})
-		.then(function(json){
-			json.results.forEach(function(item){
-				var pokemon = {
-					name: item.name,
-					detailsUrl: item.url
-				};
-				add(pokemon);
-				console.log(pokemon);
+	function loadList() {
+		return fetch(apiUrl)
+			.then(function(response) {
+				return response.json();
+			})
+			.then(function(json) {
+				json.results.forEach(function(item) {
+					var pokemon = {
+						name: item.name,
+						detailsUrl: item.url
+					};
+					add(pokemon);
+					console.log(pokemon);
+				});
+			})
+			.catch(function(e) {
+				console.error(e);
 			});
-		});
-		.catch(function(e){
-			console.error(e);
-		});
 	}
-	function loadDetails(item){
+	function loadDetails(item) {
 		var url = item.detailsUrl;
-		return fetch(url).then(function(response){
-			return response.json();
-		})
-		.then(function(response){
-			return response.json();
-		})
-		.then(function(details){
-			// adding details to the item
-			item.imageUrl = details.sprites.front_default;
-			item.height = details.height;
-			item.types = Object.keys(details.types);
-		})
-		.catch(function(e){
-			console.error(e);
-		});
+		return fetch(url)
+			.then(function(response) {
+				return response.json();
+			})
+			.then(function(response) {
+				return response.json();
+			})
+			.then(function(details) {
+				// adding details to the item
+				item.imageUrl = details.sprites.front_default;
+				item.height = details.height;
+				item.types = Object.keys(details.types);
+			})
+			.catch(function(e) {
+				console.error(e);
+			});
 	}
 	return {
 		add,
@@ -81,33 +83,10 @@ var pokemonRepository = (function() {
 	};
 })();
 
-console.log(pokemonRepository.getAll());
-pokemonRepository.add({ name: 'Pikachu', height: 0.3, types: ['electric'] });
-console.log(pokemonRepository.getAll());
-
-pokemonRepository.getAll().forEach(function(item) {
-	// var size;
-	// if (item.height > 1) {
-	// 	size = 'Wow, that’s big!';
-	// } else {
-	// 	size = "It's small pokemon";
-	// }
-
-	// var result;
-	// item.types.forEach(function(typeItem) {
-	// 	if (typeItem == 'grass') {
-	// 		result = '<span style="color:green;"> ';
-	// 	} else if (typeItem == 'fire') {
-	// 		result = '<span style="color:red;"> ';
-	// 	} else if (typeItem == 'electric') {
-	// 		result = '<span style="color:yellow;"> ';
-	// 	} else if (typeItem == 'poison') {
-	// 		result = '<span style="color:rgb(106, 42, 106);"> ';
-	// 	} else if (typeItem == 'psychic') {
-	// 		result = '<span style="color:orange;"> ';
-	// 	}
-	// });
-	pokemonRepository.addListItem(item);
+pokemonRepository.loadList().then(function() {
+	pokemonRepository.getAll().forEach(function(pokemon) {
+		pokemonRepository.addListItem(pokemon);
+	});
 });
 
 // functionality for the nav bar- from bulma documentation
