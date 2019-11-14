@@ -19,10 +19,12 @@ var pokemonRepository = (function() {
 	function getAll() {
 		return repository;
 	}
+
 	function addListItem(pokemon = {}) {
 		var pokemonList = document.querySelector('.pokemon-list');
 		var $listItem = document.createElement('li');
 		var button = document.createElement('button');
+		$listItem.classList.add('pokemon-list__item');
 		button.innerText = pokemon.name;
 		button.classList.add('my-class');
 		$listItem.appendChild(button);
@@ -31,6 +33,7 @@ var pokemonRepository = (function() {
 			showDetails(pokemon);
 		});
 	}
+
 	function showDetails(item) {
 		pokemonRepository.loadDetails(item).then(function() {
 			console.log(item);
@@ -62,9 +65,6 @@ var pokemonRepository = (function() {
 			.then(function(response) {
 				return response.json();
 			})
-			.then(function(response) {
-				return response.json();
-			})
 			.then(function(details) {
 				// adding details to the item
 				item.imageUrl = details.sprites.front_default;
@@ -91,6 +91,7 @@ pokemonRepository.loadList().then(function() {
 	});
 });
 
+// end of modal
 // functionality for the nav bar- from bulma documentation
 document.addEventListener('DOMContentLoaded', function() {
 	// get all "navbar burger" elements
