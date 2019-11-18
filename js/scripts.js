@@ -1,7 +1,7 @@
 // wrapping pokemonRepo in an IIFE
 var pokemonRepository = (function() {
 	var repository = [];
-	var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=900';
+	var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 	// the validation of the pokemon
 	function add(pokemon) {
 		if (
