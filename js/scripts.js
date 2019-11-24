@@ -22,7 +22,7 @@ var pokemonRepository = (function() {
 		var pokemonList = document.querySelector('.pokemon-list');
 		var $listItem = document.createElement('li');
 		var button = document.createElement('button');
-		$listItem.classList.add('pokemon-list__item');
+		// $listItem.classList.add('pokemon-list__item');
 		button.innerText = pokemon.name;
 		button.classList.add('my-class');
 		$listItem.appendChild(button);
@@ -35,6 +35,7 @@ var pokemonRepository = (function() {
 	function showDetails(item) {
 		pokemonRepository.loadDetails(item).then(function() {
 			console.log(item);
+			showModal(item);
 		});
 	}
 	// loading data from external api
