@@ -20,7 +20,8 @@
 	margin: 10px;
 }
 .title {
-	padding: 50px;
+	padding-top: 30px;
+	padding-left: 50px;
 }
 
 div#modal-content.modal-content.is-visible {
