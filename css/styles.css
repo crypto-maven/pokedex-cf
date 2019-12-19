@@ -23,6 +23,10 @@
 	padding: 50px;
 }
 
+div#modal-content.modal-content.is-visible {
+	padding: 20px;
+}
+
 .my-class {
 	background-color: #4caf50; /* Green */
 	border: none;
