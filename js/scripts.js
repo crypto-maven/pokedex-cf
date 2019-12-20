@@ -1,6 +1,6 @@
 var pokemonRepository = (function() {
 	var repository = [];
-	var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=900';
+	var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=20';
 	function add(pokemon) {
 		if (
 			typeof pokemon === 'object' &&
@@ -59,6 +59,7 @@ var pokemonRepository = (function() {
 			.then(function(details) {
 				// Now we add the details to the item
 				item.imageUrl = details.sprites.front_default;
+				item.imageUrlBack = details.sprites.back_default;
 				item.height = details.height;
 				//loop for each ofthe pokemon types.
 				//Also changing the background color depend on each pokemon type.
@@ -99,6 +100,9 @@ var pokemonRepository = (function() {
 		// creating img in modal content
 		var imageElement = $('<img class="modal-img">');
 		imageElement.attr('src', item.imageUrl);
+		// create back img in modal
+		var imageElementBack = $('<img class="modal-img">');
+		imageElementBack.attr('src', item.imageUrlBack);
 		//creating element for height in modal content
 		var heightElement = $('<p>' + 'height : ' + item.height + '</p>');
 		//creating element for weight in modal content
@@ -113,6 +117,7 @@ var pokemonRepository = (function() {
 		modal.append(closeButtonElement);
 		modal.append(nameElement);
 		modal.append(imageElement);
+		modal.append(imageElementBack);
 		modal.append(heightElement);
 		modal.append(weightElement);
 		modal.append(typesElement);
